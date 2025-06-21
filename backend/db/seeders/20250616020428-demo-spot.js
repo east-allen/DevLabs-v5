@@ -1,7 +1,6 @@
 'use strict';
 
 const { Spot } = require('../models');
-const bcrypt = require("bcryptjs");
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -21,7 +20,7 @@ module.exports = {
         country: "United States of America",
         lat: 33.7490,
         lng: -84.3880,
-        name: "Dev Spot 01",
+        name: "Atlanta Tech Hub",
         description: "Modern development space in downtown Atlanta",
         price: 123
       },
@@ -34,7 +33,7 @@ module.exports = {
         country: "United States of America",
         lat: 32.0835,
         lng: -81.0998,
-        name: "Dev Spot 02",
+        name: "Savannah Code Space",
         description: "Historic tech workspace in beautiful Savannah",
         price: 200
       },
@@ -47,7 +46,7 @@ module.exports = {
         country: "United States of America",
         lat: 33.4735,
         lng: -82.0105,
-        name: "Dev Spot 03",
+        name: "Augusta Innovation Center",
         description: "Collaborative workspace perfect for development teams",
         price: 350
       },
@@ -60,7 +59,7 @@ module.exports = {
         country: "United States of America",
         lat: 32.4609,
         lng: -84.9877,
-        name: "Dev Spot 04",
+        name: "Columbus Developer Studio",
         description: "Modern coding facility with state-of-the-art equipment",
         price: 175
       },
@@ -73,7 +72,7 @@ module.exports = {
         country: "United States of America",
         lat: 32.8407,
         lng: -83.6324,
-        name: "Dev Spot 05",
+        name: "Macon Creative Labs",
         description: "Creative development space in central Georgia",
         price: 140
       },
@@ -86,7 +85,7 @@ module.exports = {
         country: "United States of America",
         lat: 33.9519,
         lng: -83.3576,
-        name: "Dev Spot 06",
+        name: "Athens Tech Collective",
         description: "University town development hub with great amenities",
         price: 275
       },
@@ -99,7 +98,7 @@ module.exports = {
         country: "United States of America",
         lat: 31.5804,
         lng: -84.1557,
-        name: "Dev Spot 07",
+        name: "Albany Digital Workspace",
         description: "Professional development workspace in southwest Georgia",
         price: 190
       },
