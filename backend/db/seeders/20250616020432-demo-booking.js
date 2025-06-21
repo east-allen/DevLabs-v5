@@ -1,7 +1,6 @@
 'use strict';
 
 const { Booking } = require('../models');
-const bcrypt = require("bcryptjs");
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -16,22 +15,22 @@ module.exports = {
       {
         spotId: 1,
         userId: 1,
-        startDate: '2024-09-14',
-        endDate: '2024-11-11',
+        startDate: '2025-03-15',
+        endDate: '2025-03-22',
      
       },
       {
         spotId: 2,
         userId: 2,
-        startDate: '2026-02-02',
-        endDate: '2026-02-12',
+        startDate: '2025-04-10',
+        endDate: '2025-04-17',
        
       },
       {
         spotId: 3,
         userId: 3,
-        startDate: '2024-03-03',
-        endDate: '2024-03-13',
+        startDate: '2025-05-05',
+        endDate: '2025-05-12',
        
       },
     ], { validate: true });
