@@ -1,0 +1,229 @@
+/* Header Component - Matching Navbar Colors */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.h-16 {
+  height: 4rem;
+  background: rgba(0, 0, 0, 0.95);
+  padding: 0 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.space-x-8 > * + * {
+  margin-left: 2rem;
+}
+
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:flex {
+    display: flex;
+  }
+}
+
+/* Logo and Wordmark */
+.rounded-full {
+  border-radius: 50%;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.devlabs-wordmark {
+  font-size: 1.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.dev-text {
+  color: var(--metallic-platinum);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.labs-text {
+  background: var(--holo-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: holographic-shift 3s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes holographic-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Navigation Links */
+.nav-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link:hover {
+  color: var(--metallic-gold);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.hover\:text-brand-metal:hover {
+  color: var(--metallic-steel);
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--metallic-gold);
+}
+
+.nav-link:hover::before {
+  width: 100%;
+  left: 0;
+}
+
+/* 3D Buttons */
+.btn-3d {
+  background: linear-gradient(135deg, var(--metallic-steel) 0%, var(--metallic-gunmetal) 100%);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-3d:hover {
+  background: linear-gradient(135deg, var(--metallic-silver) 0%, var(--metallic-steel) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-3d:active {
+  transform: scale(0.98);
+}
+
+.btn-gradient {
+  background: linear-gradient(135deg, var(--metallic-gold) 0%, var(--metallic-copper) 100%);
+  color: var(--metallic-obsidian);
+}
+
+.btn-gradient:hover {
+  background: linear-gradient(135deg, var(--metallic-copper) 0%, var(--metallic-bronze) 100%);
+  color: var(--metallic-obsidian);
+}
+
+/* Focus states for accessibility */
+.btn-3d:focus,
+.nav-link:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .h-16 {
+    padding: 0 1rem;
+  }
+  
+  .devlabs-wordmark {
+    font-size: 1.5rem;
+  }
+  
+  .space-x-4 > * + * {
+    margin-left: 0.5rem;
+  }
+  
+  .btn-3d {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .devlabs-wordmark {
+    font-size: 1.2rem;
+  }
+  
+  .btn-3d {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .nav-link {
+    border: 1px solid transparent;
+  }
+  
+  .nav-link:hover {
+    border-color: var(--metallic-gold);
+  }
+  
+  .btn-3d {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link:hover,
+  .btn-3d:hover {
+    transform: none;
+  }
+  
+  .btn-3d:active {
+    transform: none;
+  }
+  
+  .nav-link::before {
+    transition: none;
+  }
+}

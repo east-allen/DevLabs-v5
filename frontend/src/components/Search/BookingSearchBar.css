@@ -1,0 +1,183 @@
+/* Booking Bar Component - Matching Navbar Colors */
+.booking-bar-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  background: transparent;
+}
+
+.booking-bar {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.booking-bar:hover {
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.booking-field {
+  flex: 1;
+  padding: 16px 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  color: var(--text-primary);
+}
+
+.booking-field:last-of-type {
+  border-right: none;
+}
+
+.booking-field label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.field-icon {
+  color: var(--metallic-gold);
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+
+.booking-field input,
+.booking-field select {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: var(--text-primary);
+  background: transparent;
+  padding: 4px 0;
+}
+
+.booking-field input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.booking-field select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e5e4e2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+.booking-button {
+  background: linear-gradient(135deg, var(--metallic-steel) 0%, var(--metallic-gunmetal) 100%);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50px;
+  padding: 16px 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  margin-left: 8px;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.booking-button:hover {
+  background: linear-gradient(135deg, var(--metallic-silver) 0%, var(--metallic-steel) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.booking-button:active {
+  transform: scale(0.98);
+}
+
+.booking-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .booking-bar {
+    flex-direction: column;
+    border-radius: 16px;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .booking-field {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 0;
+  }
+
+  .booking-field:last-of-type {
+    border-bottom: none;
+  }
+
+  .booking-button {
+    margin-left: 0;
+    justify-content: center;
+  }
+}
+
+/* Focus states */
+.booking-field input:focus,
+.booking-field select:focus {
+  outline: none;
+}
+
+.booking-bar:focus-within {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--metallic-gold);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+/* Enhanced booking-specific styling */
+.booking-bar-container {
+  position: relative;
+}
+
+.booking-bar-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: var(--gradient-primary);
+  border-radius: 2px;
+  opacity: 0.8;
+}
+
+/* Booking confirmation animation */
+.booking-button.booking-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  animation: bookingSuccess 0.6s ease-in-out;
+}
+
+@keyframes bookingSuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}

@@ -1,0 +1,178 @@
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment files (CRITICAL: Never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Build outputs
+/build
+/dist
+**/build/
+**/dist/
+
+# Keep production build files only
+!/frontend/dist/
+!/frontend/build/
+
+# Development and local files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+*.tmp
+*.temp
+
+# Logs and debugging
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+*.log
+.npm
+.yarn-integrity
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.settings/
+
+# Database files (exclude local dev databases)
+*.sqlite
+*.sqlite3
+*.db
+
+# Testing and coverage
+coverage/
+.nyc_output/
+.coverage/
+test-results/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+tmp/
+temp/
+
+# OS generated files
+.DS_Store?
+ehthumbs.db
+Icon?
+
+# Editor backup files
+*~
+*.bak
+*.orig
+
+# Compiled binary addons
+build/Release
+
+# Dependency lock files (keep package-lock.json for consistency)
+# yarn.lock
+
+# Local development overrides
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Deployment artifacts (exclude unless needed for production)
+*.zip
+*.tar.gz
+*.rar
+
+# Documentation build
+docs/_build/
+
+# Python cache (if any Python scripts)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MacOS specific
+.AppleDouble
+.LSOverride
+
+# Windows specific
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux specific
+*~
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Security and sensitive files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Local configuration overrides
+config/local.js
+config/local.json
+
+# Runtime configuration
+.runtime
+
+# Package manager files
+package-lock.json.bak
+yarn.lock.bak
+
+# System Files
+Thumbs.db
+
+# Personal files
+ignore/
+
+# Documentation and style guide files
+DEVLABS_STYLE_GUIDE.md
+Arthur Allen_ 12a3f0a0-9797-5f79-a07d-8830be164e9d - Google Sheets.pdf
+COLOR_SYSTEM.md
