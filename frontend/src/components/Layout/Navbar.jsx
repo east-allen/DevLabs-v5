@@ -37,16 +37,10 @@ const Navbar = () => {
               marginRight: '8px'
             }}
           />
-          <img 
-            src="/devlabs-logo.jpg" 
-            alt="DevLabs" 
-            className="navbar-wordmark"
-            style={{
-              height: '34px',
-              width: 'auto',
-              objectFit: 'contain'
-            }}
-          />
+          <span className="devlabs-wordmark">
+            <span className="dev-text">Dev</span>
+            <span className="labs-text">Labs</span>
+          </span>
         </Link>
 
         <div className="navbar-menu">

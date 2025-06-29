@@ -47,8 +47,73 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Benefits Section */}
+      <section className="benefits-section">
+        <div className="container">
+          <div className="benefits-grid">
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 9 15.5 9 14 9.67 14 10.5s.67 1.5 1.5 1.5z"/>
+                </svg>
+              </div>
+              <h3 className="benefit-title">Transform Your Space</h3>
+              <p className="benefit-description">Transform your space into a productivity hub and connect with innovative professionals</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 9 15.5 9 14 9.67 14 10.5s.67 1.5 1.5 1.5z"/>
+                </svg>
+              </div>
+              <h3 className="benefit-title">Flexible Booking</h3>
+              <p className="benefit-description">Set flexible booking terms and competitive rates to maximize your space utilization</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 9 15.5 9 14 9.67 14 10.5s.67 1.5 1.5 1.5z"/>
+                </svg>
+              </div>
+              <h3 className="benefit-title">Community Connection</h3>
+              <p className="benefit-description">Connect with entrepreneurs and creative minds from diverse industries</p>
+            </div>
+            <div className="benefit-card">
+              <div className="benefit-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 9 15.5 9 14 9.67 14 10.5s.67 1.5 1.5 1.5z"/>
+                </svg>
+              </div>
+              <h3 className="benefit-title">Full Support</h3>
+              <p className="benefit-description">Get full support throughout your hosting journey with our dedicated team</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* List Your Space Section */}
+      <section className="list-your-space">
+        <div className="container">
+          <div className="list-your-space-content">
+            <h2 className="list-your-space-title">List Your Space</h2>
+            <p className="list-your-space-description">
+              Transform your space into a productivity hub and connect with innovative professionals.
+              Set flexible booking terms and competitive rates to maximize your space utilization.
+            </p>
+            <div className="list-your-space-cta">
+              <Link to="/create-property" className="cta-primary">
+                Start Listing
+              </Link>
+              <Link to="/how-it-works" className="cta-secondary">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Workspaces */}
-        <section className="featured-workspaces">
+      <section className="featured-workspaces">
         <div className="container">
           <h2>Featured Workspaces</h2>
           {error && (

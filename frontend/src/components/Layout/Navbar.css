@@ -1,79 +1,195 @@
 .navbar {
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.12);
   padding: 1rem 0;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all .3s;
+}
+
+.navbar:hover {
+  background: rgba(0, 0, 0, 0.9);
+  border-bottom-color: rgba(223, 124, 103, 0.3);
 }
 
 .navbar-container {
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 80px;
-  text-align: center;
+  gap: 2rem;
 }
 
 .navbar-logo {
-  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: var(--gradient-platinum);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-}
-
-.navbar-logo:hover {
-  transform: scale(1.05);
+  text-decoration: none;
+  gap: 8px;
 }
 
 .navbar-favicon {
-  flex-shrink: 0;
+  height: 22px;
+  width: 22px;
+  object-fit: contain;
+  margin-right: 8px;
 }
 
-.navbar-wordmark {
-  flex-shrink: 0;
+.devlabs-wordmark {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.devlabs-wordmark-large {
+  font-size: 2rem;
 }
 
 .navbar-menu {
+  flex: 1;
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex: 1;
-  justify-content: space-between;
-  margin-left: 40px;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.navbar-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all .3s;
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+  color: #df7c67;
+  text-shadow: 0 0 10px rgba(223, 124, 103, 0.5);
+}
+
+.nav-link:after {
+  content: "";
+  background: var(--gradient-peach);
+  width: 0;
+  height: 2px;
+  transition: width .3s;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+}
+
+.nav-link:hover:after {
+  width: 100%;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.mobile-menu-toggle:hover {
+  color: #df7c67;
+}
+
+.user-menu {
+  position: relative;
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.user-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  display: none;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  min-width: 150px;
+}
+
+.user-menu:hover .user-dropdown {
+  display: flex;
+}
+
+.dropdown-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: all .3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #df7c67;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #ec4899;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .navbar-search {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 30px;
   padding: 12px 20px;
   flex: 1;
   max-width: 400px;
   margin: 0 20px;
-  backdrop-filter: blur(10px);
-
+  backdrop-filter: var(--glass-blur);
+  transition: var(--transition-fast);
 }
 
 .navbar-search:focus-within {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--glass-hover);
   border-color: var(--accent-primary);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
   transform: scale(1.02);
 }
 
@@ -89,28 +205,27 @@
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
   font-weight: 300;
 }
 
 .search-button {
-  background: var(--metal-base);
-  color: var(--metal-text);
+  background: var(--gradient-primary);
+  color: white;
   border: none;
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: var(--metal-shadow);
-  text-shadow: var(--metal-text-shadow);
-
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
 }
 
 .search-button:hover {
-  background: var(--metal-hover);
-  box-shadow: var(--metal-shadow-hover);
+  background: linear-gradient(135deg, var(--accent-primary-hover) 0%, #1e3a8a 100%);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .navbar-nav {
@@ -129,26 +244,26 @@
   font-size: 1rem;
   padding: 8px 16px;
   border-radius: 8px;
-
+  transition: var(--transition-fast);
   position: relative;
   overflow: hidden;
 }
 
 .nav-link:hover {
   color: var(--accent-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--state-hover);
   transform: translateY(-2px);
 }
 
 .nav-link::before {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
   height: 2px;
   background: var(--accent-primary);
-
+  transition: var(--transition-fast);
   transform: translateX(-50%);
 }
 
@@ -157,16 +272,15 @@
 }
 
 .signup-link {
-  background: var(--metal-base);
-  color: var(--metal-text) !important;
-  box-shadow: var(--metal-shadow);
-  text-shadow: var(--metal-text-shadow);
+  background: var(--gradient-primary);
+  color: white !important;
+  box-shadow: var(--shadow-sm);
 }
 
 .signup-link:hover {
-  background: var(--metal-hover);
-  box-shadow: var(--metal-shadow-hover);
+  background: linear-gradient(135deg, var(--accent-primary-hover) 0%, #1e3a8a 100%);
   transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .user-menu {
@@ -177,34 +291,37 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  background: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 8px 16px;
   cursor: pointer;
   font-size: 14px;
   color: var(--text-primary);
-
+  transition: var(--transition-fast);
+  backdrop-filter: var(--glass-blur);
 }
 
 .user-button:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-md);
+  background: var(--glass-hover);
 }
 
 .user-dropdown {
   position: absolute;
   top: 100%;
   right: 0;
-  background: var(--bg-secondary);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-2xl);
   min-width: 200px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-
+  transition: var(--transition-fast);
   z-index: 1001;
+  backdrop-filter: var(--glass-blur);
 }
 
 .user-menu:hover .user-dropdown {
@@ -224,16 +341,16 @@
   text-align: left;
   cursor: pointer;
   font-size: 14px;
-
+  transition: var(--transition-fast);
 }
 
 .dropdown-link:hover {
-  background: var(--bg-primary);
+  background: var(--state-hover);
 }
 
 .logout-btn {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #ff5a5f;
+  border-top: 1px solid var(--glass-border);
+  color: var(--accent-danger);
 }
 
 .mobile-menu-toggle {
@@ -268,12 +385,12 @@
     background: var(--bg-primary);
     flex-direction: column;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-2xl);
+    border-top: 1px solid var(--glass-border);
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-  
+    transition: var(--transition-normal);
   }
 
   .navbar-nav.active {
@@ -285,7 +402,7 @@
   .nav-link {
     padding: 12px 0;
     border-radius: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--glass-border);
     width: 100%;
   }
 

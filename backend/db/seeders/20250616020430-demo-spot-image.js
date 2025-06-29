@@ -12,187 +12,187 @@ module.exports = {
     await SpotImage.bulkCreate([
       {
         spotId: 1,
-        url: 'http://localhost:5173/workspace1.jpg',
+        url: 'https://i.imgur.com/gJ78p5F.jpg',
         preview: true,
 
       },
       {
         spotId: 1,
-        url: 'http://localhost:5173/workspace2.jpg',
+        url: 'https://i.imgur.com/VWikgi9.jpg',
         preview: false,
 
       },
       {
         spotId: 1,
-        url: 'http://localhost:5173/workspace3.jpg',
+        url: 'https://i.imgur.com/NaVgP6f.jpg',
         preview: false,
 
       },
       {
         spotId: 1,
-        url: 'http://localhost:5173/workspace4.jpg',
+        url: 'https://i.imgur.com/Z8np1tP.jpg',
         preview: false,
 
       },      
       {
         spotId: 1,
-        url: 'http://localhost:5173/workspace5.JPG',
+        url: 'https://i.imgur.com/DVhY5Z1.jpg',
         preview: false,
 
       },
       {
         spotId: 2,
-        url: 'http://localhost:5173/workspace6.JPG',
+        url: 'https://i.imgur.com/v0pdgma.jpg',
         preview: true,
 
       },
       {
         spotId: 2,
-        url: 'http://localhost:5173/workspace15.JPG',
+        url: 'https://i.imgur.com/iMrvVLb.jpg',
         preview: false,
 
       },
       {
         spotId: 2,
-        url: 'http://localhost:5173/workspace16.JPG',
+        url: 'https://i.imgur.com/gJ78p5F.jpg',
         preview: false,
 
       },
       {
         spotId: 2,
-        url: 'http://localhost:5173/workspace17.JPG',
+        url: 'https://i.imgur.com/VWikgi9.jpg',
         preview: false,
 
       },
       {
         spotId: 2,
-        url: 'http://localhost:5173/workspace18.JPG',
+        url: 'https://i.imgur.com/NaVgP6f.jpg',
         preview: false,
 
       },
       {
         spotId: 3,
-        url: 'http://localhost:5173/workspace7.JPG',
+        url: 'https://i.imgur.com/hQoW0R6.jpg',
         preview: true,
       },
       {
         spotId: 3,
-        url: 'http://localhost:5173/workspace1.jpg',
+        url: 'https://i.imgur.com/gJ78p5F.jpg',
         preview: false,
       },
       {
         spotId: 3,
-        url: 'http://localhost:5173/workspace2.jpg',
+        url: 'https://i.imgur.com/VWikgi9.jpg',
         preview: false,
       },
       {
         spotId: 3,
-        url: 'http://localhost:5173/workspace3.jpg',
+        url: 'https://i.imgur.com/NaVgP6f.jpg',
         preview: false,
       },
       {
         spotId: 3,
-        url: 'http://localhost:5173/workspace4.jpg',
+        url: 'https://i.imgur.com/Z8np1tP.jpg',
         preview: false,
       },
       {
         spotId: 4,
-        url: 'http://localhost:5173/workspace8.JPG',
+        url: 'https://i.imgur.com/HhX7WJw.jpg',
         preview: true,
       },
       {
         spotId: 4,
-        url: 'http://localhost:5173/workspace5.JPG',
+        url: 'https://i.imgur.com/DVhY5Z1.jpg',
         preview: false,
       },
       {
         spotId: 4,
-        url: 'http://localhost:5173/workspace6.JPG',
+        url: 'https://i.imgur.com/v0pdgma.jpg',
         preview: false,
       },
       {
         spotId: 4,
-        url: 'http://localhost:5173/workspace7.JPG',
+        url: 'https://i.imgur.com/hQoW0R6.jpg',
         preview: false,
       },
       {
         spotId: 4,
-        url: 'http://localhost:5173/workspace8.JPG',
+        url: 'https://i.imgur.com/HhX7WJw.jpg',
         preview: false,
       },
       {
         spotId: 5,
-        url: 'http://localhost:5173/workspace9.JPG',
+        url: 'https://i.imgur.com/lSe43am.jpg',
         preview: true,
       },
       {
         spotId: 5,
-        url: 'http://localhost:5173/workspace9.JPG',
+        url: 'https://i.imgur.com/lSe43am.jpg',
         preview: false,
       },
       {
         spotId: 5,
-        url: 'http://localhost:5173/workspace10.JPG',
+        url: 'https://i.imgur.com/StfRd76.jpg',
         preview: false,
       },
       {
         spotId: 5,
-        url: 'http://localhost:5173/workspace11.JPG',
+        url: 'https://i.imgur.com/QtfeEO9.jpg',
         preview: false,
       },
       {
         spotId: 5,
-        url: 'http://localhost:5173/workspace12.JPG',
+        url: 'https://i.imgur.com/uhF7ktY.jpg',
         preview: false,
       },
       {
         spotId: 6,
-        url: 'http://localhost:5173/workspace10.JPG',
+        url: 'https://i.imgur.com/StfRd76.jpg',
         preview: true,
       },
       {
         spotId: 6,
-        url: 'http://localhost:5173/workspace13.JPG',
+        url: 'https://i.imgur.com/wk3KmeL.jpg',
         preview: false,
       },
       {
         spotId: 6,
-        url: 'http://localhost:5173/workspace14.JPG',
+        url: 'https://i.imgur.com/K6mMSDf.jpg',
         preview: false,
       },
       {
         spotId: 6,
-        url: 'http://localhost:5173/workspace1.jpg',
+        url: 'https://i.imgur.com/gJ78p5F.jpg',
         preview: false,
       },
       {
         spotId: 6,
-        url: 'http://localhost:5173/workspace2.jpg',
+        url: 'https://i.imgur.com/VWikgi9.jpg',
         preview: false,
       },
       {
         spotId: 7,
-        url: 'http://localhost:5173/workspace11.JPG',
+        url: 'https://i.imgur.com/QtfeEO9.jpg',
         preview: true,
       },
       {
         spotId: 7,
-        url: 'http://localhost:5173/workspace3.jpg',
+        url: 'https://i.imgur.com/NaVgP6f.jpg',
         preview: false,
       },
       {
         spotId: 7,
-        url: 'http://localhost:5173/workspace4.jpg',
+        url: 'https://i.imgur.com/Z8np1tP.jpg',
         preview: false,
       },
       {
         spotId: 7,
-        url: 'http://localhost:5173/workspace5.JPG',
+        url: 'https://i.imgur.com/DVhY5Z1.jpg',
         preview: false,
       },
       {
         spotId: 7,
-        url: 'http://localhost:5173/workspace6.JPG',
+        url: 'https://i.imgur.com/v0pdgma.jpg',
         preview: false,
       },
     ], { validate: true })

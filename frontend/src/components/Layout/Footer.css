@@ -1,6 +1,7 @@
+/* Exact Reference Footer Styling */
 .footer {
   background: var(--bg-secondary);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--glass-border);
   margin-top: auto;
 }
 
@@ -33,14 +34,14 @@
 }
 
 .footer-section h3 {
-  color: var(--text-primary);
+  color: var(--text-heading);
   margin-bottom: 16px;
   font-size: 20px;
   font-weight: 600;
 }
 
 .footer-section h4 {
-  color: var(--text-primary);
+  color: var(--text-heading);
   font-size: 16px;
   margin-bottom: 16px;
   font-weight: 600;
@@ -66,11 +67,11 @@
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 14px;
-
+  transition: var(--transition-fast);
 }
 
 .footer-section ul li a:hover {
-  color: #ff5a5f;
+  color: var(--accent-primary);
 }
 
 .social-links {
@@ -84,23 +85,24 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--bg-primary);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
   border-radius: 50%;
   color: var(--text-secondary);
   text-decoration: none;
-
+  transition: var(--transition-fast);
+  backdrop-filter: var(--glass-blur);
 }
 
 .social-link:hover {
-  background: #ff5a5f;
+  background: var(--accent-primary);
   color: white;
-  border-color: #ff5a5f;
+  border-color: var(--accent-primary);
   transform: translateY(-2px);
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--glass-border);
   padding: 20px 0;
 }
 
@@ -127,11 +129,11 @@
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 14px;
-
+  transition: var(--transition-fast);
 }
 
 .footer-links a:hover {
-  color: #ff5a5f;
+  color: var(--accent-primary);
 }
 
 /* Tablet Styles */

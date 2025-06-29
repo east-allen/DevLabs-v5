@@ -12,15 +12,15 @@ module.exports = {
     await ReviewImage.bulkCreate([
       {
         reviewId: 1,
-        url: 'http://localhost:5173/workspace12.JPG',
+        url: 'https://i.imgur.com/uhF7ktY.jpg',
       },
       {
         reviewId: 2,
-        url: 'http://localhost:5173/workspace13.JPG',
+        url: 'https://i.imgur.com/wk3KmeL.jpg',
       },
       {
         reviewId: 3,
-        url: 'http://localhost:5173/workspace14.JPG',
+        url: 'https://i.imgur.com/K6mMSDf.jpg',
       },
     ], { validate: true })
   },

@@ -2,19 +2,23 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  background: white;
+  background: var(--gradient-card);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
   cursor: pointer;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
 }
 
 .property-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-xl);
   text-decoration: none;
   color: inherit;
+  border-color: var(--border-default);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%);
 }
 
 .property-image {
@@ -28,7 +32,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-
+  transition: var(--transition-normal);
 }
 
 .property-card:hover .property-image img {
@@ -40,7 +44,7 @@
   top: 12px;
   right: 12px;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: var(--glass-blur);
   padding: 6px 10px;
   border-radius: 20px;
   display: flex;
@@ -48,11 +52,11 @@
   gap: 4px;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
 }
 
 .star-icon {
-  color: #ffd700;
+  color: #fbbf24;
   font-size: 12px;
 }
 
@@ -71,19 +75,19 @@
   align-items: center;
   gap: 6px;
   margin-bottom: 8px;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .location-icon {
-  color: #ff5a5f;
+  color: var(--accent-primary);
   font-size: 12px;
 }
 
 .property-title {
   font-size: 18px;
   font-weight: 600;
-  color: #333;
+  color: var(--text-heading);
   margin: 0 0 12px 0;
   line-height: 1.3;
   display: -webkit-box;
@@ -94,7 +98,7 @@
 }
 
 .property-description {
-  color: #666;
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 1.5;
   margin: 0 0 16px 0;
@@ -110,19 +114,19 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 16px;
-  border-top: 1px solid #f0f0f0;
+  border-top: 1px solid var(--glass-border);
 }
 
 .property-guests {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #666;
+  color: var(--text-secondary);
   font-size: 14px;
 }
 
 .guests-icon {
-  color: #ff5a5f;
+  color: var(--accent-primary);
   font-size: 12px;
 }
 
@@ -135,12 +139,12 @@
 .price {
   font-size: 20px;
   font-weight: 700;
-  color: #333;
+  color: var(--text-heading);
 }
 
 .price-period {
   font-size: 14px;
-  color: #666;
+  color: var(--text-secondary);
   font-weight: 400;
 }
 
@@ -197,12 +201,12 @@
 }
 
 .property-card.loading .property-image {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, var(--glass-bg) 25%, var(--glass-hover) 50%, var(--glass-bg) 75%);
   background-size: 200% 100%;
 }
 
 .property-card.loading .property-content > * {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, var(--glass-bg) 25%, var(--glass-hover) 50%, var(--glass-bg) 75%);
   background-size: 200% 100%;
   color: transparent;
   border-radius: 4px;

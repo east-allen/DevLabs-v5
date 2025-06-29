@@ -1,97 +1,81 @@
-/* DevLabs 3D Metallic Color System */
+/* DevLabs Exact Reference Color System */
 :root {
-  /* === CORE 3D METALLIC PALETTE === */
-  --metallic-platinum: #e5e4e2;
-  --metallic-silver: #c0c0c0;
-  --metallic-steel: #71797e;
-  --metallic-gunmetal: #2a3439;
-  --metallic-obsidian: #0f1419;
-  
-  /* === ACCENT METALLICS === */
-  --metallic-gold: #ffd700;
-  --metallic-copper: #b87333;
-  --metallic-bronze: #cd7f32;
-  --metallic-rose-gold: #e8b4a0;
-  
-  /* === HOLOGRAPHIC SHIFTS === */
-  --holo-primary: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57);
-  --holo-secondary: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
-  --holo-accent: linear-gradient(90deg, #4facfe, #00f2fe, #43e97b, #38f9d7);
-  
-  /* === 3D DEPTH SYSTEM === */
-  --depth-1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  --depth-2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  --depth-3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  --depth-4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  --depth-5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-  
-  /* === METALLIC GRADIENTS === */
-  --gradient-platinum: linear-gradient(135deg, #f7f7f7 0%, #e5e4e2 25%, #d3d3d3 50%, #c0c0c0 75%, #a8a8a8 100%);
-  --gradient-steel: linear-gradient(135deg, #8a9ba8 0%, #71797e 25%, #5a6268 50%, #434a52 75%, #2a3439 100%);
-  --gradient-obsidian: linear-gradient(135deg, #2a3439 0%, #1f2933 25%, #1a202c 50%, #161b22 75%, #0f1419 100%);
-  
-  /* === SURFACE MATERIALS === */
-  --surface-glass: rgba(255, 255, 255, 0.1);
-  --surface-frosted: rgba(255, 255, 255, 0.05);
-  --surface-mirror: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.05));
-  --surface-brushed: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,0.03) 1px, rgba(255,255,255,0.03) 2px);
-  
-  /* === LIGHTING SYSTEM === */
-  --light-ambient: rgba(255, 255, 255, 0.1);
-  --light-directional: rgba(255, 255, 255, 0.2);
-  --light-specular: rgba(255, 255, 255, 0.4);
-  --shadow-ambient: rgba(0, 0, 0, 0.3);
-  --shadow-directional: rgba(0, 0, 0, 0.5);
-  
-  /* === BRAND COLORS === */
-  --brand-primary: var(--metallic-steel);
-  --brand-secondary: var(--metallic-gunmetal);
-  --brand-accent: var(--metallic-gold);
-  --brand-gradient: var(--gradient-steel);
-  
-  /* === BACKGROUND SYSTEM === */
+  /* === EXACT BACKGROUND COLORS === */
   --bg-primary: #000000;
-  --bg-secondary: var(--metallic-obsidian);
-  --bg-tertiary: var(--metallic-gunmetal);
-  --bg-surface: var(--surface-glass);
-  --bg-elevated: var(--surface-frosted);
-  
-  /* === TEXT SYSTEM === */
-  --text-primary: var(--metallic-platinum);
-  --text-secondary: var(--metallic-silver);
-  --text-muted: var(--metallic-steel);
-  --text-accent: var(--metallic-gold);
-  --text-inverse: var(--metallic-obsidian);
-  
-  /* === BORDER SYSTEM === */
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --border-default: rgba(255, 255, 255, 0.2);
-  --border-strong: rgba(255, 255, 255, 0.3);
-  --border-accent: var(--metallic-gold);
-  
-  /* === INTERACTIVE STATES === */
-  --state-hover: rgba(255, 255, 255, 0.1);
-  --state-active: rgba(255, 255, 255, 0.2);
-  --state-focus: var(--holo-accent);
-  --state-disabled: rgba(255, 255, 255, 0.3);
-  
-  /* === PRIMARY GRADIENTS === */
-  --gradient-primary: linear-gradient(135deg, #ff6b6b 0%, #ff5252 100%);
-  --gradient-primary-hover: linear-gradient(135deg, #ff5252 0%, #e53935 100%);
-  --accent-primary: #ff6b6b;
-  
-  /* === STATUS COLORS === */
-  --status-success: #4ade80;
-  --status-warning: #facc15;
-  --status-error: #ef4444;
-  --status-info: #3b82f6;
-  
-  /* === ANIMATION PROPERTIES === */
-  --transition-fast: 0s;
-  --transition-normal: 0s;
-  --transition-slow: 0s;
-  --transition-bounce: 0s;
-  
+  --bg-secondary: #0f0f0f;
+  --bg-tertiary: #1a1a1a;
+  --bg-surface: rgba(255, 255, 255, 0.02);
+  --bg-elevated: rgba(255, 255, 255, 0.04);
+  --bg-card: #111111;
+  --bg-input: rgba(255, 255, 255, 0.05);
+
+  /* === EXACT TEXT COLORS === */
+  --text-primary: #ffffff;
+  --text-secondary: #b3b3b3;
+  --text-muted: #808080;
+  --text-accent: #60a5fa;
+  --text-inverse: #000000;
+  --text-heading: #f8f9fa;
+
+  /* === EXACT ACCENT COLORS === */
+  --accent-primary: #df7c67;
+  --accent-primary-hover: #ff6b35;
+  --accent-secondary: #10b981;
+  --accent-tertiary: #f59e0b;
+  --accent-danger: #ec4899;
+  --accent-success: #22c55e;
+  --accent-warning: #f59e0b;
+
+  /* === HOLOGRAPHIC GRADIENTS === */
+  --gradient-metal: linear-gradient(135deg, #333 0%, #444 100%);
+  --gradient-chrome: linear-gradient(135deg, #444 0%, #555 100%);
+  --gradient-peach: linear-gradient(135deg, #ff6b35 0%, #df7c67 100%);
+  --gradient-rainbow: linear-gradient(135deg, #ff6b35, #df7c67, #ec8ba3, #b497ea, #4a1a4a);
+  --metal-shadow: 0 0 20px rgba(255, 107, 53, 0.3), 0 0 40px rgba(223, 124, 103, 0.2);
+  --metal-shadow-hover: 0 0 30px rgba(255, 107, 53, 0.5), 0 0 60px rgba(223, 124, 103, 0.4);
+
+  /* === EXACT GRADIENTS === */
+  --gradient-primary: var(--gradient-rainbow);
+  --gradient-secondary: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --gradient-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+
+  /* === EXACT BORDERS === */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.15);
+  --border-accent: var(--accent-primary);
+
+  /* === EXACT SHADOWS === */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.5);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+
+  /* === EXACT INTERACTIVE STATES === */
+  --state-hover: rgba(255, 255, 255, 0.04);
+  --state-active: rgba(255, 255, 255, 0.06);
+  --state-focus: rgba(59, 130, 246, 0.25);
+  --state-disabled: rgba(255, 255, 255, 0.2);
+
+  /* === EXACT GLASS EFFECTS === */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(20px);
+  --glass-hover: rgba(255, 255, 255, 0.05);
+
+  /* === LEGACY COMPATIBILITY === */
+  --metallic-platinum: #ffffff;
+  --metallic-silver: #b3b3b3;
+  --metallic-steel: #808080;
+  --metallic-gunmetal: #404040;
+  --metallic-obsidian: #000000;
+  --metallic-gold: #f59e0b;
+  --metallic-copper: #ea580c;
+  --metallic-bronze: #dc2626;
+  --metallic-rose-gold: #ec4899;
+
   /* === SPACING SYSTEM === */
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -99,14 +83,20 @@
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  
+
   /* === BORDER RADIUS === */
-  --radius-sm: 0.25rem;
+  --radius-sm: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
-  
+
+  /* === TRANSITIONS === */
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
   /* === Z-INDEX SYSTEM === */
   --z-dropdown: 1000;
   --z-sticky: 1020;
@@ -122,17 +112,15 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #000000;
-    --text-primary: var(--metallic-platinum);
+    --text-primary: #ffffff;
   }
 }
-
-
 
 /* === HIGH CONTRAST === */
 @media (prefers-contrast: high) {
   :root {
-    --border-subtle: rgba(255, 255, 255, 0.3);
-    --border-default: rgba(255, 255, 255, 0.5);
-    --border-strong: rgba(255, 255, 255, 0.7);
+    --border-subtle: rgba(255, 255, 255, 0.2);
+    --border-default: rgba(255, 255, 255, 0.3);
+    --border-strong: rgba(255, 255, 255, 0.4);
   }
 }
