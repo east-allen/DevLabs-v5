@@ -43,6 +43,7 @@
   letter-spacing: -0.02em;
   background: var(--gradient-metal);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -157,7 +158,7 @@
 
 .benefits-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   padding: 40px;
 }
@@ -233,6 +234,7 @@
   color: #fff;
   background: var(--gradient-metal);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -261,7 +263,7 @@
   }
 
   .benefits-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 20px;
   }
@@ -577,7 +579,7 @@
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   max-width: 1400px;
   margin: 0 auto;

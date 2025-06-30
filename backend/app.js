@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const csurf = require('csurf');
 const helmet = require('helmet');
+const cookieParser = require('cookie-parser');
 
 const { environment } = require('./config');
 const { restoreUser } = require('./utils/auth');
@@ -14,15 +15,16 @@ const app = express();
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Security Middleware
 if (!isProduction) {
   // enable cors only in development
   app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5174'],
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-CSRF-Token']
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+    allowedHeaders: ['Content-Type', 'X-CSRF-Token', 'Authorization', 'X-Requested-With']
   }));
 }
 

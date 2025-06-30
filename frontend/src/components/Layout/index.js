@@ -40,7 +40,7 @@ export const LAYOUT_CONSTANTS = {
 export const LAYOUT_THEMES = {
   light: {
     header: {
-      background: '#ffffff',
+      background: 'rgba(34, 31, 31, 0.9)',
       border: '#e5e7eb',
       text: '#374151',
       textHover: '#111827'

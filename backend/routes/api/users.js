@@ -33,23 +33,48 @@ router.post(
   '/',
   validateSignup,
   async (req, res) => {
-    const { email, password, username, firstName, lastName } = req.body;
-    const hashedPassword = bcrypt.hashSync(password);
-    const user = await User.create({ email, username, hashedPassword, firstName, lastName });
+    try {
+      const { email, password, username, firstName, lastName } = req.body;
+      const hashedPassword = bcrypt.hashSync(password);
+      const user = await User.create({ email, username, hashedPassword, firstName, lastName });
 
-    const safeUser = {
-      id: user.id,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      username: user.username,
-    };
+      const safeUser = {
+        id: user.id,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        username: user.username,
+      };
 
-    await setTokenCookie(res, safeUser);
+      await setTokenCookie(res, safeUser);
 
-    return res.json({
-      user: safeUser
-    });
+      return res.json({
+        user: safeUser
+      });
+    } catch (error) {
+      // Handle unique constraint violations
+      if (error.name === 'SequelizeUniqueConstraintError') {
+        const field = error.fields[0];
+        let message = 'This account information is already in use.';
+        
+        if (field === 'username') {
+          message = 'Username is already taken. Please choose a different username.';
+        } else if (field === 'email') {
+          message = 'Email is already registered. Please use a different email or try logging in.';
+        }
+        
+        return res.status(400).json({
+          message,
+          errors: { [field]: message }
+        });
+      }
+      
+      // Handle other errors
+      console.error('Registration error:', error);
+      return res.status(500).json({
+        message: 'An error occurred during registration. Please try again.'
+      });
+    }
   }
 );
 

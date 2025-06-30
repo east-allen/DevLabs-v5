@@ -8,14 +8,13 @@ import Footer from './components/Layout/Footer';
 import Logo from './components/Logo';
 import Home from './pages/Home';
 import PropertyDetails from './pages/PropertyDetails';
-import Login from './pages/Login';
-import Register from './pages/Register';
+
+
 import Profile from './pages/Profile';
 import Bookings from './pages/Bookings';
 import CreateProperty from './pages/CreateProperty';
 
-import FeaturedWorkspacesDemo from './pages/FeaturedWorkspacesDemo';
-import HeaderDemo from './pages/HeaderDemo';
+
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 
 import './App.css';
@@ -44,8 +43,8 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          
+          
           <Route path="/property/:id" element={<PropertyDetails />} />
 
           <Route
@@ -73,8 +72,7 @@ function App() {
             }
           />
 
-            <Route path="/featured-workspaces-demo" element={<FeaturedWorkspacesDemo />} />
-            <Route path="/header-demo" element={<HeaderDemo />} />
+            
         </Routes>
       </main>
       <Footer />

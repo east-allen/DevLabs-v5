@@ -33,7 +33,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
-          <h1>Discover Your Next Innovation Hub</h1>
+          <h1>Discover Your Next<br/>Innovation Hub</h1>
           <p>Find inspiring workspaces and collaborative environments designed for productivity and creativity</p>
           
           {/* Booking Bar */}
@@ -78,15 +78,7 @@ const Home = () => {
               <h3 className="benefit-title">Community Connection</h3>
               <p className="benefit-description">Connect with entrepreneurs and creative minds from diverse industries</p>
             </div>
-            <div className="benefit-card">
-              <div className="benefit-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 9 15.5 9 14 9.67 14 10.5s.67 1.5 1.5 1.5z"/>
-                </svg>
-              </div>
-              <h3 className="benefit-title">Full Support</h3>
-              <p className="benefit-description">Get full support throughout your hosting journey with our dedicated team</p>
-            </div>
+
           </div>
         </div>
       </section>

@@ -26,13 +26,24 @@
   --accent-success: #22c55e;
   --accent-warning: #f59e0b;
 
+  /* === BRAND COLORS === */
+  --brand-gray: #8d8c89;
+  --brand-metal: silver;
+  --brand-steel: #a8a8a8;
+  --brand-chrome: #e8e8e8;
+  --brand-pink: #ec8ba3;
+  --brand-purple: #4a1a4a;
+  --brand-dark-purple: #2d1b3d;
+
   /* === HOLOGRAPHIC GRADIENTS === */
-  --gradient-metal: linear-gradient(135deg, #333 0%, #444 100%);
-  --gradient-chrome: linear-gradient(135deg, #444 0%, #555 100%);
+  --gradient-metal: linear-gradient(135deg, #f0f0f0 0%, silver 25%, #a8a8a8 50%, silver 75%, #f0f0f0 100%);
+  --gradient-steel: linear-gradient(135deg, #e8e8e8 0%, silver 50%, #a0a0a0 100%);
+  --gradient-chrome: linear-gradient(135deg, #fff 0%, #e0e0e0 25%, silver 50%, #e0e0e0 75%, #fff 100%);
+  --gradient-chain: linear-gradient(135deg, var(--brand-gray), var(--brand-metal), var(--brand-pink), var(--brand-purple));
   --gradient-peach: linear-gradient(135deg, #ff6b35 0%, #df7c67 100%);
   --gradient-rainbow: linear-gradient(135deg, #ff6b35, #df7c67, #ec8ba3, #b497ea, #4a1a4a);
-  --metal-shadow: 0 0 20px rgba(255, 107, 53, 0.3), 0 0 40px rgba(223, 124, 103, 0.2);
-  --metal-shadow-hover: 0 0 30px rgba(255, 107, 53, 0.5), 0 0 60px rgba(223, 124, 103, 0.4);
+  --metal-shadow: inset 0 1px 0 #ffffff4d, inset 0 -1px 0 #0000004d, 0 2px 4px #0003;
+  --metal-shadow-hover: inset 0 1px 0 #fff6, inset 0 -1px 0 #0006, 0 4px 8px #0000004d;
 
   /* === EXACT GRADIENTS === */
   --gradient-primary: var(--gradient-rainbow);

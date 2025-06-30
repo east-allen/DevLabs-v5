@@ -1,7 +1,7 @@
 /* Featured Workspaces Demo Page Styles */
 .featured-workspaces-demo {
   min-height: 100vh;
-  background: var(--bg-primary);
+  background: var(--bg-secondary);
   color: var(--text-primary);
   padding: 2rem 0;
 }
