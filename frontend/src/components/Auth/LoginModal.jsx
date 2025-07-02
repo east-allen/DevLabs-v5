@@ -63,9 +63,12 @@ const LoginModal = ({ closeModal }) => {
     }
   };
 
+  const DEMO_CREDENTIAL = 'devone_userone';
+  const DEMO_PASSWORD = 'password';
+
   const handleDemoLogin = async () => {
     try {
-      await dispatch(loginUser({ credential: 'demo', password: 'password' })).unwrap();
+      await dispatch(loginUser({ credential: DEMO_CREDENTIAL, password: DEMO_PASSWORD })).unwrap();
       closeModal();
     } catch (err) {
       // Error is handled by Redux state

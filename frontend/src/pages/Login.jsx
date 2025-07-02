@@ -87,6 +87,9 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
+  const isLoginDisabled =
+    formData.email.length < 4 || formData.password.length < 6 || isLoading;
+
   return (
     <div className="auth-container">
       <div className="auth-card">
@@ -161,7 +164,7 @@ const Login = () => {
           <button
             type="submit"
             className="auth-submit-btn"
-            disabled={isLoading}
+            disabled={isLoginDisabled}
           >
             {isLoading ? (
               <LoadingSpinner size="small" message="" />
