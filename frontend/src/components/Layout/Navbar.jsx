@@ -5,7 +5,7 @@ import { logoutUser } from '../../store/slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import LoginModal from '../Auth/LoginModal';
-import SignUpModal from '../Auth/SignUpModal';
+import SignUpModal from '../Auth/SignupModal';
 import './Navbar.css';
 
 const Navbar = () => {
