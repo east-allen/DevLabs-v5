@@ -4,7 +4,7 @@ import { loginUser, clearError } from '../../store/slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import './AuthModal.css';
+import './authmodal.css';
 
 const LoginModal = ({ closeModal }) => {
   const [formData, setFormData] = useState({

@@ -1,7 +1,7 @@
 # Multi-stage Dockerfile for DevLabs Backend and Frontend
 
 # --- Backend Build Stage ---
-FROM node:18-alpine AS backend-builder
+FROM node:20-alpine AS backend-builder
 
 WORKDIR /usr/src/app/backend
 
@@ -12,7 +12,7 @@ RUN npm ci --omit=dev
 COPY backend/ ./
 
 # --- Frontend Build Stage ---
-FROM node:18-alpine AS frontend-builder
+FROM node:20-alpine AS frontend-builder
 
 WORKDIR /usr/src/app/frontend
 
@@ -25,7 +25,7 @@ COPY frontend/ ./
 RUN npm run build
 
 # --- Production Stage ---
-FROM node:18-alpine AS production
+FROM node:20-alpine AS production
 
 # Install serve for static file serving
 RUN npm install -g serve
