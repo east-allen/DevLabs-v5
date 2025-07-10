@@ -30,6 +30,7 @@ FROM node:20-alpine AS production
 
 ENV NODE_ENV production
 ENV DATABASE_URL ""
+ENV PORT 10000
 
 # Install serve for static file serving
 RUN npm install -g serve
@@ -47,4 +48,4 @@ COPY --from=frontend-builder /usr/src/app/frontend/dist ./frontend/dist
 EXPOSE 10000
 
 # Command to run the application
-CMD [ "sh", "-c", "npm start --prefix backend & serve -l 5173 frontend/dist" ]
+CMD [ "sh", "-c", "npm run start:production --prefix backend & serve -l 5173 frontend/dist" ]
