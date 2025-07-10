@@ -13,6 +13,7 @@ COPY backend/ ./
 
 # --- Frontend Build Stage ---
 FROM node:20-alpine AS frontend-builder
+ENV VITE_API_BASE_URL=""
 
 WORKDIR /usr/src/app/frontend
 
@@ -28,6 +29,7 @@ RUN npm run build
 FROM node:20-alpine AS production
 
 ENV NODE_ENV production
+ENV DATABASE_URL ""
 
 # Install serve for static file serving
 RUN npm install -g serve
