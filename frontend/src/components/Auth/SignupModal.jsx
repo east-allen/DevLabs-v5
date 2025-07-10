@@ -4,7 +4,7 @@ import { registerUser, clearError } from '../../store/slices/authSlice';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash, faLock, faUser, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import './AuthModal.css';
+import './authmodal.css';
 
 const SignUpModal = ({ closeModal }) => {
   const [formData, setFormData] = useState({
