@@ -27,6 +27,8 @@ RUN npm run build
 # --- Production Stage ---
 FROM node:20-alpine AS production
 
+ENV NODE_ENV production
+
 # Install serve for static file serving
 RUN npm install -g serve
 
@@ -40,7 +42,7 @@ COPY --from=backend-builder /usr/src/app/backend ./backend
 COPY --from=frontend-builder /usr/src/app/frontend/dist ./frontend/dist
 
 # Expose backend port
-EXPOSE 8000
+EXPOSE 10000
 
 # Command to run the application
-CMD [ "sh", "-c", "npm start --prefix backend & serve -s frontend/dist -l 5173" ]
+CMD [ "sh", "-c", "npm start --prefix backend & serve -l 5173 frontend/dist" ]
