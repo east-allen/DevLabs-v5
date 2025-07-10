@@ -124,22 +124,41 @@ router.get('/', async (req, res) => {
   const spots = await Spot.findAll({
     where,
     ...pagination,
-    include: [
-      {
-        model: SpotImage,
-        attributes: ['url'],
-        where: { preview: true },
-        required: false
-      }
-    ]
+    include: []
   });
+
+  // Get review stats separately to avoid complex GROUP BY issues
+  const spotsWithStats = await Promise.all(spots.map(async (spot) => {
+    const reviews = await Review.findAll({
+      where: { spotId: spot.id },
+      attributes: ['stars']
+    });
+
+    const numReviews = reviews.length;
+    const avgRating = numReviews > 0 
+      ? Math.round((reviews.reduce((sum, review) => sum + review.stars, 0) / numReviews) * 10) / 10
+      : null;
+
+    const previewImage = await SpotImage.findOne({
+      where: { spotId: spot.id, preview: true },
+      attributes: ['url']
+    });
+
+    return {
+      ...spot.toJSON(),
+      previewImage: previewImage ? previewImage.url : null,
+      numReviews,
+      avgRating
+    };
+  }));
   
-  const formattedSpots = spots.map(spot => {
-    const spotData = spot.toJSON();
+  const formattedSpots = spotsWithStats.map(spotData => {
+    // Handle previewImage
     spotData.previewImage = spotData.SpotImages && spotData.SpotImages.length > 0 
       ? spotData.SpotImages[0].url 
       : null;
-    delete spotData.SpotImages;
+    delete spotData.SpotImages; // Clean up
+
     return spotData;
   });
   
@@ -168,6 +187,110 @@ router.post('/', validateSpot, async (req, res) => {
   });
   
   return res.status(201).json(spot);
+});
+
+// Get details of a spot by ID
+router.get('/:spotId', async (req, res) => {
+  const spot = await Spot.findByPk(req.params.spotId, {
+    include: [
+      {
+        model: Review,
+        attributes: []
+      },
+      {
+        model: SpotImage,
+        attributes: ['id', 'url', 'preview']
+      },
+      {
+        model: User,
+        as: 'Owner',
+        attributes: ['id', 'firstName', 'lastName']
+      }
+    ],
+    attributes: {
+      include: [
+        [
+          Spot.sequelize.fn('COUNT', Spot.sequelize.col('Reviews.id')),
+          'numReviews'
+        ],
+        [
+          Spot.sequelize.fn('ROUND', Spot.sequelize.fn('AVG', Spot.sequelize.col('Reviews.stars')), 1),
+          'avgStarRating'
+        ]
+      ]
+    },
+    group: ['Spot.id', 'SpotImages.id', 'Owner.id']
+  });
+  
+  if (!spot) {
+    return res.status(404).json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    });
+  }
+  
+  return res.json(spot);
+});
+
+// Edit a spot
+router.put('/:spotId', validateSpot, async (req, res) => {
+  const spot = await Spot.findByPk(req.params.spotId);
+  
+  if (!spot) {
+    return res.status(404).json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    });
+  }
+  
+  if (spot.ownerId !== req.user.id) {
+    return res.status(403).json({
+      message: 'Forbidden',
+      statusCode: 403
+    });
+  }
+  
+  const { address, city, state, country, lat, lng, name, description, price } = req.body;
+  
+  await spot.update({
+    address,
+    city,
+    state,
+    country,
+    lat,
+    lng,
+    name,
+    description,
+    price
+  });
+  
+  return res.json(spot);
+});
+
+// Delete a spot
+router.delete('/:spotId', async (req, res) => {
+  const spot = await Spot.findByPk(req.params.spotId);
+  
+  if (!spot) {
+    return res.status(404).json({
+      message: "Spot couldn't be found",
+      statusCode: 404
+    });
+  }
+  
+  if (spot.ownerId !== req.user.id) {
+    return res.status(403).json({
+      message: 'Forbidden',
+      statusCode: 403
+    });
+  }
+  
+  await spot.destroy();
+  
+  return res.json({
+    message: 'Successfully deleted',
+    statusCode: 200
+  });
 });
 
 // Get current user's spots
@@ -374,7 +497,8 @@ router.get('/:spotId/reviews', async (req, res) => {
         as: 'ReviewImages',
         attributes: ['id', 'url']
       }
-    ]
+    ],
+    order: [['createdAt', 'DESC']] // Spec 20: Newest reviews first
   });
   
   return res.json({ Reviews: reviews });
@@ -475,5 +599,50 @@ router.get('/:spotId/bookings', async (req, res) => {
     return res.json({ Bookings: bookings });
   }
 });
+
+// Add multiple images to a spot by URLs
+router.post('/:spotId/images/bulk', async (req, res) => {
+  const spot = await Spot.findByPk(req.params.spotId);
+
+  if (!spot) {
+    return res.status(404).json({ message: "Spot couldn't be found" });
+  }
+
+  // Optional: Check if the current user is the owner of the spot
+  // if (spot.ownerId !== req.user.id) {
+  //   return res.status(403).json({ message: 'Forbidden' });
+  // }
+
+  const { images } = req.body; // Expecting an array of objects: [{ url: '...', preview: true/false }, ...]
+
+  if (!Array.isArray(images) || images.length === 0) {
+    return res.status(400).json({ message: 'Request body must be an array of images and cannot be empty.' });
+  }
+
+  const createdImages = [];
+  for (const image of images) {
+    if (image.url && typeof image.url === 'string') {
+      try {
+        const newImage = await SpotImage.create({
+          spotId: req.params.spotId,
+          url: image.url,
+          preview: !!image.preview // Ensure boolean
+        });
+        createdImages.push(newImage);
+      } catch (validationError) {
+        // Could collect these errors and return them
+        console.error("Validation error for image URL:", image.url, validationError);
+        // Skip this image or return an error response
+      }
+    }
+  }
+
+  if (createdImages.length === 0 && images.length > 0) {
+    return res.status(400).json({ message: 'No valid image URLs provided or failed to save images.'})
+  }
+
+  return res.status(201).json(createdImages);
+});
+
 
 module.exports = router;

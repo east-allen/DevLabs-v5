@@ -1,5 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { spotsAPI } from '../../utils/api';
+import axios from 'axios';
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 
 // Async thunks
 export const fetchSpots = createAsyncThunk(
@@ -59,19 +62,26 @@ export const updateSpot = createAsyncThunk(
   }
 );
 
+export const getCurrentUserSpots = createAsyncThunk(
+  'spots/getCurrentUserSpots',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await spotsAPI.getCurrentUserSpots();
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data?.message || 'Failed to fetch user spots');
+    }
+  }
+);
+
 export const deleteSpot = createAsyncThunk(
   'spots/deleteSpot',
-  async (id, { rejectWithValue, getState }) => {
+  async (id, { rejectWithValue }) => {
     try {
-      const { auth } = getState();
-      await axios.delete(`${API_BASE_URL}/spots/${id}`, {
-        headers: {
-          Authorization: `Bearer ${auth.token}`,
-        },
-      });
+      await spotsAPI.delete(id);
       return id;
     } catch (error) {
-      return rejectWithValue(error.response.data.message);
+      return rejectWithValue(error.response?.data?.message || 'Failed to delete spot');
     }
   }
 );
@@ -80,10 +90,10 @@ export const deleteSpot = createAsyncThunk(
 
 const initialState = {
   spots: [],
+  userSpots: [],
   currentSpot: null,
-  isLoading: false,
+  loading: false,
   error: null,
-
 };
 
 const spotsSlice = createSlice({
@@ -103,44 +113,58 @@ const spotsSlice = createSlice({
     builder
       // Fetch spots
       .addCase(fetchSpots.pending, (state) => {
-        state.isLoading = true;
+        state.loading = true;
         state.error = null;
       })
       .addCase(fetchSpots.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.spots = action.payload;
         state.error = null;
       })
       .addCase(fetchSpots.rejected, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.error = action.payload;
       })
       // Fetch spot by ID
       .addCase(fetchSpotById.pending, (state) => {
-        state.isLoading = true;
+        state.loading = true;
         state.error = null;
       })
       .addCase(fetchSpotById.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.currentSpot = action.payload;
         state.error = null;
       })
       .addCase(fetchSpotById.rejected, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.error = action.payload;
       })
       // Create spot
       .addCase(createSpot.pending, (state) => {
-        state.isLoading = true;
+        state.loading = true;
         state.error = null;
       })
       .addCase(createSpot.fulfilled, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
         state.spots.push(action.payload);
         state.error = null;
       })
       .addCase(createSpot.rejected, (state, action) => {
-        state.isLoading = false;
+        state.loading = false;
+        state.error = action.payload;
+      })
+      // Get current user spots
+      .addCase(getCurrentUserSpots.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(getCurrentUserSpots.fulfilled, (state, action) => {
+        state.loading = false;
+        state.userSpots = action.payload.Spots || action.payload;
+        state.error = null;
+      })
+      .addCase(getCurrentUserSpots.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.payload;
       })
       // Update spot

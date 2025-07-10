@@ -5,7 +5,7 @@ import { getCurrentUser } from './store/slices/authSlice';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
-import Logo from './components/Logo';
+// Logo component was removed as unused
 import Home from './pages/Home';
 import PropertyDetails from './pages/PropertyDetails';
 
@@ -13,6 +13,7 @@ import PropertyDetails from './pages/PropertyDetails';
 import Profile from './pages/Profile';
 import Bookings from './pages/Bookings';
 import CreateProperty from './pages/CreateProperty';
+import ManageSpotsPage from './pages/ManageSpotsPage'; // Import ManageSpotsPage
 
 
 import ProtectedRoute from './components/Auth/ProtectedRoute';
@@ -64,10 +65,26 @@ function App() {
             }
           />
           <Route
+            path="/spots/:spotId/edit" // Route for updating a spot
+            element={
+              <ProtectedRoute>
+                <CreateProperty mode="update" />{/* Pass a mode prop */}
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/create-property"
             element={
               <ProtectedRoute>
                 <CreateProperty />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/spots/manage"
+            element={
+              <ProtectedRoute>
+                <ManageSpotsPage />
               </ProtectedRoute>
             }
           />

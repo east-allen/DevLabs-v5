@@ -93,6 +93,7 @@ export const spotsAPI = {
   create: (spotData) => api.post('/spots', spotData),
   update: (id, spotData) => api.put(`/spots/${id}`, spotData),
   delete: (id) => api.delete(`/spots/${id}`),
+  getCurrentUserSpots: () => api.get('/spots/current'),
   getReviews: (id) => api.get(`/spots/${id}/reviews`),
   createReview: (id, reviewData) => api.post(`/spots/${id}/reviews`, reviewData),
   getBookings: (id) => api.get(`/spots/${id}/bookings`),
